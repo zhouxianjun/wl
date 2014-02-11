@@ -86,6 +86,6 @@ public class VersionController extends BaseController {
 	}
 	
 	private String getPath(HttpServletRequest request, String path){
-		return request.getSession().getServletContext().getRealPath(path == null ? "" : path)+File.separator;
+		return request.getSession().getServletContext().getRealPath(File.separator + (path == null ? "" : path))+File.separator;
 	}
 }
