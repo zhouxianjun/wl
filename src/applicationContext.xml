@@ -49,7 +49,9 @@
         <property name="driverClass" value="${jdbc.driver}" />  
         <property name="jdbcUrl" value="${jdbc.url}" />  
         <property name="user" value="${jdbc.user}" />  
-        <property name="password" value="${jdbc.password}" />  
+        <property name="password" value="${jdbc.password}" /> 
+        <property name="automaticTestTable" value="C3P0TestTable" />
+        <property name="idleConnectionTestPeriod" value="18000" /> 
     </bean>  
     
   	<bean id="dataSource" class="com.gary.dao.hibernate.DynamicDataSource">

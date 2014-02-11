@@ -47,7 +47,7 @@ public class UploadController extends BaseController {
 				String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
 				byte[] data = multipartFile.getBytes();
 				if(Util.isImg(suffix)){
-					String contentPath = request.getSession().getServletContext().getRealPath(config.getMSG_IMG_PATH())+File.separator;
+					String contentPath = request.getSession().getServletContext().getRealPath(File.separator + config.getMSG_IMG_PATH())+File.separator;
 					String name = sdf.format(new Date()) + UUID.randomUUID().toString().replaceAll("-", "") + suffix;
 					File f = new File(contentPath);
 					if(!f.exists()){
@@ -79,7 +79,7 @@ public class UploadController extends BaseController {
 				String originalFilename = multipartFile.getOriginalFilename();
 				String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
 				byte[] data = multipartFile.getBytes();
-				String contentPath = request.getSession().getServletContext().getRealPath(config.getMSG_FILE_PATH())+File.separator;
+				String contentPath = request.getSession().getServletContext().getRealPath(File.separator + config.getMSG_FILE_PATH())+File.separator;
 				String name = sdf.format(new Date()) + UUID.randomUUID().toString().replaceAll("-", "") + suffix;
 				File f = new File(contentPath);
 				if(!f.exists()){
@@ -107,7 +107,7 @@ public class UploadController extends BaseController {
 		FileSHA fileSHA = fileSHAService.get(sha);
 		result.setSuccess(true);
 		if(fileSHA != null){
-			String contentPath = request.getSession().getServletContext().getRealPath(path)+File.separator;
+			String contentPath = request.getSession().getServletContext().getRealPath(File.separator + path)+File.separator;
 			File file = new File(contentPath, fileSHA.getPath());
 			if(file.exists()){
 				result.getData().put("file", fileSHA);
